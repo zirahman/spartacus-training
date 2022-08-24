@@ -1,0 +1,22 @@
+<a routerLink="add">Add new note</a>
+<h3 class="p-3 text-center">User Notes</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Subject</th>
+                <th>Note</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let userNote of userNotes">
+                <td>{{userNote.title}}</td>
+                <td>{{userNote.subject}}</td>
+                <td>{{userNote.content}}</td>
+                <td class="text-center"> <a routerLink="add">Edit</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

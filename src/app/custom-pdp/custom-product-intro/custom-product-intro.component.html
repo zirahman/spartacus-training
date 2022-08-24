@@ -1,0 +1,12 @@
+<ng-container *ngIf="product$ | async as product">
+    <h1>{{ product.name }}</h1>
+    <div class="d-flex align-iem-center justify-content-between">
+        <h3>{{  product?.price?.formattedValue }}</h3>
+        <div>
+        <cx-star-rating [rating]="product.averageRating!" 
+        [disabled]="true"></cx-star-rating>
+        <span>Read all {{product.numberOfReviews}} reviews.</span>
+    </div>
+    </div>
+    
+</ng-container>

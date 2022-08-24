@@ -1,0 +1,18 @@
+<a routerLink="../../note" class="text-center">User notes</a>
+<h2 class="header">Create a new note</h2>
+<div class="container">
+    <form [formGroup] = "formData" (ngSubmit) = "onClickSubmit(formData.value)" >
+       <input type = "text" class = "fortextbox" name = "title" placeholder = "title" 
+          formControlName="title" >
+       <br/><br/>
+       
+       <input type = "text" class = "fortextbox" name="subject" 
+          placeholder = "subject" formControlName = "subject">
+       <br/><br/>
+       <input type = "text" class = "fortextbox" name="content" 
+          placeholder = "content" formControlName = "content" maxlength="250">
+       <br/><br/>
+       
+       <input type = "submit" class = "forsubmit" value = "Create"><br/>
+    </form>
+ </div>
