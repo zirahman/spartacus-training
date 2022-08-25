@@ -1,0 +1,74 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Personal Details</a>
+      <ng-template ngbNavContent >
+        <div class="cx-section">
+          <!--<div class="row">
+            <div class="col-md-6">
+              <button
+                class="btn btn-block btn-action"
+                (click)="addAddressButtonHandle()"
+              >
+                Add new Address
+              </button>
+            </div>
+          </div> -->
+          <div class="row cx-address-deck">
+            <div   class="col-md-6 cx-address-card">
+              <img src="img.jpg" alt="ZR" style="width:100%">
+                <h1>{{user.title}} {{user.name}}</h1>
+                <p>{{user.language?.name}}</p>
+                  <p>{{user.customerId}}</p>
+                  <p>{{user.defaultAddress?.formattedAddress}}</p> 
+            </div>
+        </div>
+        </div>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Addresses</a>
+      <ng-template ngbNavContent>
+        <div class="cx-section">
+          <div class="row">
+            <div class="col-md-6">
+              <button
+                class="btn btn-block btn-action"
+                (click)="addAddressButtonHandle()"
+              >
+                Add new Address
+              </button>
+            </div>
+          </div>
+
+          <div class="row cx-address-deck"
+            *ngIf="!(addressesStateLoading$ | async); else loading"
+          >
+
+          <div *ngFor="let address of addresses$.addresses"
+          class="col-md-6 cx-address-card">
+
+            <cx-card
+              [border]="true"
+              [fitToContainer]="true"
+              [content]="getCardContent(address) | async"
+              (editCard)="editAddressButtonHandle(address)"
+              (setDefaultCard)="setAddressAsDefault(address.id)"
+              (deleteCard)="setEdit(address.id)" 
+              [editMode]="address.id === editCard"
+              (cancelCard)="cancelCard()"
+            ></cx-card>
+            <!-- <p>{{address.firstName}}</p>
+            <p>{{address.lastName}}</p>
+            <p>{{address.line1}}</p>
+            <p>{{address.line2}}</p>
+            <p>{{address.town}}, {{address.postalCode}}</p>
+            <p>Contact - {{address.phone}}</p> -->
+        </div>
+      </div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  

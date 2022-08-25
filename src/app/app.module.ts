@@ -14,6 +14,7 @@ import { CustomUpdateProfileModule } from "./custom-update-profile/custom-update
 import { UserNoteModule } from "./user-note/user-note.module";
 import { UpdateNoteModule } from "./update-note/update-note.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CustomAccountModule } from "./custom-account/custom-account.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     CustomUpdateProfileModule,
     UserNoteModule,
     UpdateNoteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomAccountModule
     //CheckoutConfigurationModule
   ],
   providers: [],
